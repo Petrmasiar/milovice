@@ -6,13 +6,25 @@
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
-      <!-- Definice image targetu (QR kódu jako markeru) -->
-      <a-marker type="pattern" url="pattern-frame.patt">
-        <!-- Vložení 3D modelu -->
-        <a-entity gltf-model="https://courageous-creponne-1834ef.netlify.app/model.glb" position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
+      <a-marker type="pattern" url="https://courageous-creponne-1834ef.netlify.app/pattern-frame.patt">
+        <a-entity gltf-model="https://courageous-creponne-1834ef.netlify.app/model.glb" draco-loader position="0 0 0" scale="0.01 0.01 0.01"></a-entity>
       </a-marker>
       
       <a-camera position="0 0 0"></a-camera>
     </a-scene>
+
+    <script>
+      AFRAME.registerComponent('draco-loader', {
+        init: function () {
+          var loader = new THREE.DRACOLoader();
+          loader.setDecoderPath('https://www.gstatic.com/draco/v1/decoders/');
+          this.el.object3D.traverse((node) => {
+            if (node.isMesh) {
+              node.geometry = loader.parse(node.geometry);
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
