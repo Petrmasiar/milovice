@@ -7,7 +7,7 @@
   <body style="margin: 0; overflow: hidden;">
     <a-scene embedded arjs>
       <!-- Definice image targetu (QR kódu jako markeru) -->
-      <a-marker type="pattern" url="marker.patt">
+      <a-marker type="pattern" url="https://www.dropbox.com/scl/fi/6vurfaumqhkig0pa152cd/ImageToStl.com_pokus-2.glb?rlkey=z38h3l2u3ta0q19gqc7mx2pmp&st=onorkw52&dl=0">
         <!-- Vložení 3D modelu -->
         <a-entity gltf-model="https://www.dropbox.com/scl/fi/6vurfaumqhkig0pa152cd/ImageToStl.com_pokus-2.glb?rlkey=z38h3l2u3ta0q19gqc7mx2pmp&st=e4v655gq&raw=1" position="0 0 0" scale="0.05 0.05 0.05"></a-entity>
       </a-marker>
